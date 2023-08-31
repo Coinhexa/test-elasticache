@@ -66,6 +66,8 @@ handle_exit() {
 trap 'handle_exit $?' EXIT
 trap 'handle_error $?' ERR
 
+# https://stackoverflow.com/a/46577479/5371505
+export AWS_DEFAULT_REGION="us-east-1"
 bucket='test-ch-backups-elasticache'
 container_name="my_redis_container"
 dump_file_directory="$HOME"

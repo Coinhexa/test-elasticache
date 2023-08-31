@@ -60,6 +60,8 @@ handle_exit() {
 trap 'handle_exit $?' EXIT
 trap 'handle_error $?' ERR
 
+# https://stackoverflow.com/a/46577479/5371505
+export AWS_DEFAULT_REGION="us-east-1"
 cache_cluster_id="test-ch-cluster-001"
 current_time="$(date +"%Y-%m-%d-%H-%M-%S")";
 file_name="${cache_cluster_id}-${current_time}";
