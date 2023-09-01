@@ -29,7 +29,7 @@ echo "****************INSTALLING NODE.JS****************"
 
 # https://github.com/nodesource/distributions
 yum install https://rpm.nodesource.com/pub_16.x/nodistro/repo/nodesource-release-nodistro-1.noarch.rpm -y
-yum install nodejs -y
+yum install nodejs git -y
 
 # Download repo and install dependencies
 echo "****************INSTALLING TEST-ELASTICACHE GITHUB REPO****************"
