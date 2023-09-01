@@ -1,4 +1,12 @@
-#!/bin/sh
+#!/usr/bin/env bash
+ 
+# Unofficial Bash Strict Mode
+# http://redsymbol.net/articles/unofficial-bash-strict-mode/
+# https://gist.github.com/vncsna/64825d5609c146e80de8b1fd623011ca
+# https://stackoverflow.com/a/35800451/5371505
+set -eEuox pipefail
+IFS=$'\n\t'
+# End of Unofficial Bash Strict Mode
 
 # Update all packages
 echo "****************UPDATING PACKAGES****************"
@@ -19,8 +27,9 @@ install -m 755 src/redis-cli /usr/local/bin/
 # Install node.js 16x
 echo "****************INSTALLING NODE.JS****************"
 
-curl -sL https://rpm.nodesource.com/setup_16.x | bash -
-yum install -y nodejs git
+# https://github.com/nodesource/distributions
+yum install https://rpm.nodesource.com/pub_16.x/nodistro/repo/nodesource-release-nodistro-1.noarch.rpm -y
+yum install nodejs -y
 
 # Install aws cli
 echo "****************INSTALLING AWS CLI****************"
@@ -28,23 +37,6 @@ echo "****************INSTALLING AWS CLI****************"
 curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
 unzip awscliv2.zip
 ./aws/install
-
-# Install docker
-
-echo "****************INSTALLING DOCKER******************************"
-
-yum install docker -y
-
-echo "******************************CHANGING DOCKER PERMISSIONS******************************"
-
-usermod -a -G docker ec2-user
-id ec2-user
-newgrp docker
-
-echo "******************************ENABLING DOCKER SERVICE******************************"
-
-systemctl enable docker.service
-systemctl start docker.service
 
 # Download repo and install dependencies
 echo "****************INSTALLING TEST-ELASTICACHE GITHUB REPO****************"

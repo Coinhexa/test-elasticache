@@ -38,8 +38,8 @@
 
 ### AWS
 
-    REDIS_SESSION_DB=0 REDIS_HOST=master.test-elasticache.bmjevo.use1.cache.amazonaws.com REDIS_PASSWORD=testELASTICACHEinstance REDIS_PORT=23147 REDIS_TLS=true node index
+    REDIS_SESSION_DB=0 REDIS_HOST=master.test-elasticache.bmjevo.use1.cache.amazonaws.com REDIS_PASSWORD=testELASTICACHEinstance REDIS_PORT=23431 REDIS_TLS=true node index
 
 ### redis-cli
 
-    redis-cli -h master.test-elasticache.bmjevo.use1.cache.amazonaws.com --tls -a testELASTICACHEinstance -p 23147 -n 0
+    redis-cli -h master.test-elasticache.bmjevo.use1.cache.amazonaws.com --tls -a testELASTICACHEinstance -p 23431 -n 0
