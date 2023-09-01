@@ -31,13 +31,6 @@ echo "****************INSTALLING NODE.JS****************"
 yum install https://rpm.nodesource.com/pub_16.x/nodistro/repo/nodesource-release-nodistro-1.noarch.rpm -y
 yum install nodejs -y
 
-# Install aws cli
-echo "****************INSTALLING AWS CLI****************"
-
-curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-unzip awscliv2.zip
-./aws/install
-
 # Download repo and install dependencies
 echo "****************INSTALLING TEST-ELASTICACHE GITHUB REPO****************"
 
